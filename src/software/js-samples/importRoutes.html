@@ -43,6 +43,9 @@
                         <pre>RouteName1,ZoneName1|ZoneName2|ZoneName3|...|ZoneNameN,Comment<br />RouteName2,ZoneName1|ZoneName2|ZoneName3|...|ZoneNameN,Comment<br />RouteName3,ZoneName1|ZoneName2|ZoneName3|...|ZoneNameN,Comment</pre>
                     </div>
                     <p>
+                        DELIMITED BY *, NOT ,
+                    </p>
+                    <p>
                         Each line represents a route to be imported. The sequence you name the route stops using zone names is the sequence the route will save them as.
                         If your route is a round trip, ensure that the first and last zone name are the same.
                     </p>
@@ -115,7 +118,7 @@
 
                         for (var i = 0; i < routes.length; i++) {
                             // Split up the route properties
-                            var split = routes[i].split(",");
+                            var split = routes[i].split("*,");
 
                             // Each imported route can only have 3 properties
                             if (split.length !== 3) {
